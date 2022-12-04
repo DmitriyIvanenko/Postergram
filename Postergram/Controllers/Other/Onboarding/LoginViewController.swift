@@ -10,13 +10,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    struct Constants {
-        static let cornerRadius: CGFloat = 8.0
-        static let buttonHeight: CGFloat = 52.0
-        static let termsUrl: String = "https://google.com"
-        static let policyUrl: String = "https://yahoo.com"
-    }
-    
     private let headerView: UIView = {
         let header =  UIView()
         header.clipsToBounds = true
@@ -30,11 +23,11 @@ class LoginViewController: UIViewController {
         field.placeholder = "Username or Email"
         field.returnKeyType = .next
         field.leftViewMode = .always
-        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10.0, height: 0))
+        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: Size.const16, height: 0))
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
         field.layer.masksToBounds = true
-        field.layer.cornerRadius = Constants.cornerRadius
+        field.layer.cornerRadius = Size.const8
         field.backgroundColor = .secondarySystemBackground
         field.layer.borderWidth = 1.0
         field.layer.borderColor = UIColor.secondaryLabel.cgColor
@@ -47,11 +40,11 @@ class LoginViewController: UIViewController {
         field.placeholder = "Password"
         field.returnKeyType = .continue
         field.leftViewMode = .always
-        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10.0, height: 0))
+        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: Size.const16, height: 0))
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
         field.layer.masksToBounds = true
-        field.layer.cornerRadius = Constants.cornerRadius
+        field.layer.cornerRadius = Size.const8
         field.backgroundColor = .secondarySystemBackground
         field.layer.borderWidth = 1.0
         field.layer.borderColor = UIColor.secondaryLabel.cgColor
@@ -63,7 +56,7 @@ class LoginViewController: UIViewController {
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.masksToBounds = true
-        button.layer.cornerRadius = Constants.cornerRadius
+        button.layer.cornerRadius = Size.const8
         button.backgroundColor = .systemBlue
         return button
     }()
@@ -129,31 +122,31 @@ class LoginViewController: UIViewController {
         )
         
         userNameEmailField.frame = CGRect(
-            x: 25,
-            y: headerView.bottomExt + 30,
-            width: view.widthExt - 50,
-            height: Constants.buttonHeight
+            x: Size.const24,
+            y: headerView.bottomExt + Size.const24 * 2,
+            width: view.widthExt - Size.const24 * 2,
+            height: Size.const52
         )
         
         passwordField.frame = CGRect(
-            x: 25,
-            y: userNameEmailField.bottomExt + 20,
-            width: view.widthExt - 50,
-            height: Constants.buttonHeight
+            x: Size.const24,
+            y: userNameEmailField.bottomExt + Size.const24,
+            width: view.widthExt - Size.const24 * 2,
+            height: Size.const52
         )
         
         loginButton.frame = CGRect(
-            x: 25,
-            y: passwordField.bottomExt + 30,
-            width: view.widthExt - 50,
-            height: Constants.buttonHeight
+            x: Size.const24,
+            y: passwordField.bottomExt + Size.const32,
+            width: view.widthExt - Size.const24 * 2,
+            height: Size.const52
         )
         
         createAccountButton.frame = CGRect(
-            x: 25,
-            y: loginButton.bottomExt + 10,
-            width: view.widthExt - 50,
-            height: Constants.buttonHeight
+            x: Size.const24,
+            y: loginButton.bottomExt + Size.const8,
+            width: view.widthExt - Size.const24 * 2,
+            height: Size.const52
         )
         
         stackView.addArrangedSubview(termsButton)
@@ -161,23 +154,23 @@ class LoginViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = true
         stackView.frame = CGRect(
             x: 0,
-            y: view.heightExt - view.safeAreaInsets.bottom - 60,
+            y: view.heightExt - view.safeAreaInsets.bottom - Size.const52,
             width: view.widthExt,
-            height: Constants.buttonHeight
+            height: Size.const52
         )
         
         termsButton.frame = CGRect(
             x: 0,
             y: 0,
             width: stackView.widthExt / 2,
-            height: Constants.buttonHeight
+            height: Size.const52
         )
         
         privacyButton.frame = CGRect(
             x: 0,
             y: 0,
             width: stackView.widthExt / 2,
-            height: Constants.buttonHeight
+            height: Size.const52
         )
         
         configureHeaderView()
@@ -222,11 +215,35 @@ class LoginViewController: UIViewController {
         userNameEmailField.resignFirstResponder()
         
         guard let usernameEmail = userNameEmailField.text, !usernameEmail.isEmpty,
-              let password = passwordField.text, !password.isEmpty, password.count >= 8 else {
+              let password = passwordField.text, !password.isEmpty, password.count >= Constants.passwordCount else {
                   return
               }
+        var username: String?
+        var email: String?
+        
+        if usernameEmail.contains("@"), usernameEmail.contains(".") {
+            email = usernameEmail
+        }
+        else {
+            username = usernameEmail
+        }
+        
+        AuthManager.shared.loginUser(username: username, email: email, password: password) { success in
+            DispatchQueue.main.async {
+                if success {
+                    //ueser logged in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                else {
+                    //error accured
+                    let alert = UIAlertController(title: "Log In error", message: "We unable to log you in", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                    self.present(alert, animated: true)
+                }
+            }
+        }
     }
-    
+ 
     @objc private func didTapTermsButton() {
         guard let url = URL(string: Constants.termsUrl) else {
             return
@@ -247,7 +264,8 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapCreateAccountButton() {
         let vc = RegistrationViewController()
-        present(vc, animated: true)
+        vc.title = "Create Account"
+        present(UINavigationController(rootViewController: vc), animated: true)
     }
     
 }
