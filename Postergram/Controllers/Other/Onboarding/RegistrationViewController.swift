@@ -8,16 +8,7 @@
 import UIKit
 
 class RegistrationViewController: UIViewController {
-    
-    private let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-        stackView.spacing = Size.const24
-        return stackView
-    }()
-    
+
     private let usernameField: UITextField = {
         let field = UITextField()
         field.placeholder = "Username"
@@ -86,7 +77,6 @@ class RegistrationViewController: UIViewController {
         usernameField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
-        view.addSubview(stackView)
         view.addSubview(usernameField)
         view.addSubview(emailField)
         view.addSubview(passwordField)
@@ -97,43 +87,31 @@ class RegistrationViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        stackView.addArrangedSubview(usernameField)
-        stackView.addArrangedSubview(emailField)
-        stackView.addArrangedSubview(passwordField)
-        stackView.addArrangedSubview(registerButton)
-        stackView.translatesAutoresizingMaskIntoConstraints = true
-        stackView.frame = CGRect(
+        usernameField.frame = CGRect(
             x: Size.const16,
             y: view.safeAreaInsets.top + Size.const52,
-            width: view.widthExt - Size.const16 * 2,
-            height: Size.const52 * 4 + Size.const24 * 3
-        )
-        
-        usernameField.frame = CGRect(
-            x: 0,
-            y: 0,
-            width: stackView.widthExt,
+            width: view.widthExt - Size.const32,
             height: Size.const52
         )
         
         emailField.frame = CGRect(
-            x: 0,
-            y: 0,
-            width: stackView.widthExt,
+            x: Size.const16,
+            y: usernameField.bottomExt + Size.const24,
+            width: view.widthExt - Size.const32,
             height: Size.const52
         )
         
         passwordField.frame = CGRect(
-            x: 0,
-            y: 0,
-            width: stackView.widthExt,
+            x: Size.const16,
+            y: emailField.bottomExt + Size.const24,
+            width: view.widthExt - Size.const32,
             height: Size.const52
         )
         
         registerButton.frame = CGRect(
-            x: 0,
-            y: passwordField.bottomExt - Size.const32,
-            width: stackView.widthExt,
+            x: Size.const16,
+            y: passwordField.bottomExt + Size.const32,
+            width: view.widthExt - Size.const32,
             height: Size.const52
         )
     }
