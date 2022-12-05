@@ -18,18 +18,10 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         handleNotAuthenticated()
-        
-//        do {
-//            try Auth.auth().signOut()
-//        }
-//        catch {
-//            print("Faild to sign out")
-//        }
-        
+
     }
     
     private func handleNotAuthenticated() {
-        
         //Check Outh status
         if Auth.auth().currentUser == nil {
             //Show login
@@ -37,8 +29,7 @@ class HomeViewController: UIViewController {
             loginVC.modalPresentationStyle = .fullScreen
             present(loginVC, animated: false)
         }
-        
     }
-
+    
 }
 

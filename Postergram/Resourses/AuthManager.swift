@@ -11,8 +11,6 @@ public class AuthManager {
     
     static let shared = AuthManager()
     
-    //MARK: - Public
-    
     public func registerNewUser(username: String, email: String, password: String, complition: @escaping (Bool) -> Void) {
         /*
          - Check if Username is available
@@ -49,6 +47,9 @@ public class AuthManager {
         }
     }
     
+    
+    //MARK: - Log In
+    
     public func loginUser(username: String?, email: String?, password: String, complition: @escaping (Bool) -> Void) {
         if let email = email {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
@@ -61,6 +62,20 @@ public class AuthManager {
         }
         else if let username = username {
             print(username)
+        }
+    }
+    
+    //MARK: - Log Out
+
+    public func logOut(comletion: (Bool) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            comletion(true)
+            return
+        }
+        catch {
+            comletion(false)
+            return
         }
     }
 

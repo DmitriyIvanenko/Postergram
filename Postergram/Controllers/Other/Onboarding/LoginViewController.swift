@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         field.autocorrectionType = .no
         field.layer.masksToBounds = true
         field.layer.cornerRadius = Size.const8
-        field.backgroundColor = .secondarySystemBackground
+        field.backgroundColor = .systemBackground
         field.layer.borderWidth = 1.0
         field.layer.borderColor = UIColor.secondaryLabel.cgColor
         return field
@@ -45,7 +45,7 @@ class LoginViewController: UIViewController {
         field.autocorrectionType = .no
         field.layer.masksToBounds = true
         field.layer.cornerRadius = Size.const8
-        field.backgroundColor = .secondarySystemBackground
+        field.backgroundColor = .systemBackground
         field.layer.borderWidth = 1.0
         field.layer.borderColor = UIColor.secondaryLabel.cgColor
         return field

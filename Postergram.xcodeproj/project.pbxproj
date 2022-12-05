@@ -12,7 +12,7 @@
 		6142D08E2938F37800B52401 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6142D08D2938F37800B52401 /* FirebaseCrashlytics */; };
 		6142D0902938F37800B52401 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6142D08F2938F37800B52401 /* FirebaseDatabase */; };
 		6142D0922938F37800B52401 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6142D0912938F37800B52401 /* FirebaseStorage */; };
-		6148AC9E293C6A0400DD9DB2 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6148AC9D293C6A0400DD9DB2 /* Size.swift */; };
+		6148AC9E293C6A0400DD9DB2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6148AC9D293C6A0400DD9DB2 /* Constants.swift */; };
 		6163DBD72934A74900CEF49D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6163DBD62934A74900CEF49D /* AppDelegate.swift */; };
 		6163DBD92934A74900CEF49D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6163DBD82934A74900CEF49D /* SceneDelegate.swift */; };
 		6163DBDB2934A74900CEF49D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6163DBDA2934A74900CEF49D /* HomeViewController.swift */; };
@@ -41,7 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6148AC9D293C6A0400DD9DB2 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
+		6148AC9D293C6A0400DD9DB2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6163DBD32934A74900CEF49D /* Postergram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Postergram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6163DBD62934A74900CEF49D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6163DBD82934A74900CEF49D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				61B7BFD2293899070041DFB1 /* AuthManager.swift */,
 				61B7BFD4293899660041DFB1 /* StorageManager.swift */,
 				61BD8AD329393072004258D2 /* Extensions.swift */,
-				6148AC9D293C6A0400DD9DB2 /* Size.swift */,
+				6148AC9D293C6A0400DD9DB2 /* Constants.swift */,
 			);
 			path = Resourses;
 			sourceTree = "<group>";
@@ -292,7 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6163DC012934AB0900CEF49D /* EditProfileViewController.swift in Sources */,
-				6148AC9E293C6A0400DD9DB2 /* Size.swift in Sources */,
+				6148AC9E293C6A0400DD9DB2 /* Constants.swift in Sources */,
 				6163DBF02934A91B00CEF49D /* ExploreViewController.swift in Sources */,
 				6163DC0D2934ABD400CEF49D /* PublishPostViewController.swift in Sources */,
 				6163DBF22934A94F00CEF49D /* CameraViewController.swift in Sources */,
