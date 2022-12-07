@@ -19,5 +19,6 @@ public class Size {
 public class Constants {
     static let termsUrl: String = "https://google.com"
     static let policyUrl: String = "https://yahoo.com"
+    static let helpUrl: String = "https://help.com"
     static let passwordCount: Int = 8
 }

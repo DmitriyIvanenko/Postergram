@@ -5,6 +5,7 @@
 //  Created by Dmytro Ivanenko on 28.11.2022.
 //
 
+import SafariServices
 import UIKit
 
 struct SettingsCellModel {
@@ -39,12 +40,74 @@ final class SettingsViewController: UIViewController {
     }
     
     private func configureModels() {
-        let section = [
+        data.append([
+            SettingsCellModel(title: "Edit Profile") { [weak self] in
+                self?.didtapEditProfile()
+            },
+            SettingsCellModel(title: "Invite Friends") { [weak self] in
+                self?.didtapInviteFriends()
+            },
+            SettingsCellModel(title: "Save Original Posts") { [weak self] in
+                self?.didtapsaveOriginalPosts()
+            }
+        ])
+        
+        data.append([
+            SettingsCellModel(title: "Terms of services") { [weak self] in
+                self?.openURL(type: .terms)
+            },
+            SettingsCellModel(title: "Privacy Policy") { [weak self] in
+                self?.openURL(type: .privacy)
+            },
+            SettingsCellModel(title: "Help / Feddback") { [weak self] in
+                self?.openURL(type: .help)
+            }
+        ])
+        
+        data.append([
             SettingsCellModel(title: "Log Out") { [weak self] in
                 self?.didtapLogOut()
             }
-        ]
-        data.append(section)
+        ])
+    }
+    
+    enum SettingsURLType {
+        case terms, privacy, help
+    }
+    
+    private func openURL(type: SettingsURLType) {
+        let urlString: String
+        switch type {
+        case .terms: urlString = Constants.termsUrl
+        case.privacy: urlString = Constants.policyUrl
+        case.help: urlString = Constants.helpUrl
+        }
+        
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        let  vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
+    }
+    
+    private func didtapEditProfile() {
+        let vc = EditProfileViewController()
+        vc.title = "Edit profile"
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
+    }
+    
+    private func didtapInviteFriends() {
+        
+    }
+    
+    private func didtapsaveOriginalPosts() {
+        
+    }
+
+    
+    private func didtapsaveHelpFeedback() {
+        
     }
     
     private func didtapLogOut() {
@@ -89,6 +152,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.section][indexPath.row].title
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
