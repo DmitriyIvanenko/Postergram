@@ -8,6 +8,7 @@
 import Foundation
 
 public class Size {
+    static let const4: CGFloat = 4.0
     static let const8: CGFloat = 8.0
     static let const16: CGFloat = 16.0
     static let const24: CGFloat = 24.0

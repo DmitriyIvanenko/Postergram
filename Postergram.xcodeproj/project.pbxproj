@@ -48,6 +48,7 @@
 		61BD8AD429393072004258D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD8AD329393072004258D2 /* Extensions.swift */; };
 		61E9C39929423BA100F851B2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 61E9C39829423BA100F851B2 /* SDWebImage */; };
 		61E9C39B294245E600F851B2 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E9C39A294245E600F851B2 /* Models.swift */; };
+		61FE573629509B3A00125B01 /* UserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FE573529509B3A00125B01 /* UserFollowTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		61BD8AD329393072004258D2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		61E9C39A294245E600F851B2 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		61FBABBD2942368900DD150E /* SDWebImage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SDWebImage; path = ../../../Downloads/SDWebImage; sourceTree = "<group>"; };
+		61FE573529509B3A00125B01 /* UserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 			children = (
 				6192C79B293FCFBC00906BE6 /* Home Feed */,
 				6192C7A22941171600906BE6 /* FormTableViewCell.swift */,
+				61FE573529509B3A00125B01 /* UserFollowTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				6192C7A32941171600906BE6 /* FormTableViewCell.swift in Sources */,
 				6192C79A293FCD2600906BE6 /* IGFeedPostTableViewCell.swift in Sources */,
 				61B7BFD5293899660041DFB1 /* StorageManager.swift in Sources */,
+				61FE573629509B3A00125B01 /* UserFollowTableViewCell.swift in Sources */,
 				6163DBFF2934AADB00CEF49D /* PostViewController.swift in Sources */,
 				6163DBF42934A97200CEF49D /* NotificationsViewController.swift in Sources */,
 				6163DC092934AB7200CEF49D /* SearchResultViewController.swift in Sources */,

@@ -104,6 +104,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             let tabControllHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                          withReuseIdentifier: ProfileTabsCollectionReusableView.identifier,
                                                                          for: indexPath) as! ProfileTabsCollectionReusableView
+            tabControllHeader.delegate = self
             return tabControllHeader
         }
         
@@ -121,7 +122,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         //Size of Section Tabs
         return CGSize(width: collectionView.widthExt,
-                      height: 65)
+                      height: 50)
     }
     
 }
@@ -135,14 +136,14 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     }
     
     func profileHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewController()
+        let vc = ListViewController(data: ["Joe", "Dan", "Mark", "Lui"])
         vc.title = "Followers"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func profileHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewController()
+        let vc = ListViewController(data: ["Joe", "Dan", "Mark", "Lui"])
         vc.title = "Following"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
@@ -155,3 +156,13 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     }
 }
 
+extension ProfileViewController: ProfileTabsCollectionReusableViewDelegate {
+    func didTapGridButtonTab() {
+        //Reload collection view with data
+    }
+    
+    func didTapTaggedButtonTab() {
+        //Reload collection view with data
+
+    }
+}
