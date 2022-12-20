@@ -121,10 +121,10 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
             height: profilePhotoSize
         ).integral
         
-        profilePhotoImageView.layer.cornerRadius = profilePhotoSize/2.0
+        profilePhotoImageView.layer.cornerRadius = profilePhotoSize / 2.0
         
-        let buttonHeight = profilePhotoSize/2
-        let countButtonWidth = (widthExt-10-profilePhotoSize)/3
+        let buttonHeight = profilePhotoSize / 2
+        let countButtonWidth = (widthExt - 10 - profilePhotoSize) / 3
         
         postsButton.frame = CGRect(
             x: profilePhotoImageView.rightExt,
@@ -150,14 +150,14 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         editProfileButton.frame = CGRect(
             x: profilePhotoImageView.rightExt,
             y: 5 + buttonHeight,
-            width: countButtonWidth*3,
+            width: countButtonWidth * 3,
             height: buttonHeight
         ).integral
         
         nameLabel.frame = CGRect(
             x: 5,
             y: 5 + profilePhotoImageView.bottomExt,
-            width: widthExt-10,
+            width: widthExt - 10,
             height: 50
         ).integral
         
@@ -165,7 +165,7 @@ final class ProfileInfoHeaderCollectionReusableView: UICollectionReusableView {
         bioLabel.frame = CGRect(
             x: 5,
             y: 5 + nameLabel.bottomExt,
-            width: widthExt-10,
+            width: widthExt - 10,
             height: bioLabelSize.height
         ).integral
 
