@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61130ADA2951DC9600AF0686 /* NoNotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61130AD92951DC9600AF0686 /* NoNotificationsView.swift */; };
+		61130ADD2951E38800AF0686 /* NotificationFollowEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61130ADC2951E38800AF0686 /* NotificationFollowEventTableViewCell.swift */; };
+		61130ADF2951E3B900AF0686 /* NotificationLikeeventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61130ADE2951E3B900AF0686 /* NotificationLikeeventTableViewCell.swift */; };
 		6142D08A2938F37800B52401 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6142D0892938F37800B52401 /* FirebaseAnalytics */; };
 		6142D08C2938F37800B52401 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6142D08B2938F37800B52401 /* FirebaseAuth */; };
 		6142D08E2938F37800B52401 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6142D08D2938F37800B52401 /* FirebaseCrashlytics */; };
@@ -52,6 +55,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61130AD92951DC9600AF0686 /* NoNotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNotificationsView.swift; sourceTree = "<group>"; };
+		61130ADC2951E38800AF0686 /* NotificationFollowEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationFollowEventTableViewCell.swift; sourceTree = "<group>"; };
+		61130ADE2951E3B900AF0686 /* NotificationLikeeventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationLikeeventTableViewCell.swift; sourceTree = "<group>"; };
 		6148AC9D293C6A0400DD9DB2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6163DBD32934A74900CEF49D /* Postergram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Postergram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6163DBD62934A74900CEF49D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61130ADB2951E33A00AF0686 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				61130ADC2951E38800AF0686 /* NotificationFollowEventTableViewCell.swift */,
+				61130ADE2951E3B900AF0686 /* NotificationLikeeventTableViewCell.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		6163DBCA2934A74900CEF49D = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +161,7 @@
 				6192C798293FCCCD00906BE6 /* Cells */,
 				6163DBDF2934A74900CEF49D /* Assets.xcassets */,
 				6163DBEE2934A81500CEF49D /* Storyboards */,
+				61130AD92951DC9600AF0686 /* NoNotificationsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,6 +240,7 @@
 		6192C798293FCCCD00906BE6 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				61130ADB2951E33A00AF0686 /* Notifications */,
 				6192C79B293FCFBC00906BE6 /* Home Feed */,
 				6192C7A22941171600906BE6 /* FormTableViewCell.swift */,
 				61FE573529509B3A00125B01 /* UserFollowTableViewCell.swift */,
@@ -367,11 +384,14 @@
 				6163DBF22934A94F00CEF49D /* CameraViewController.swift in Sources */,
 				6163DBDB2934A74900CEF49D /* HomeViewController.swift in Sources */,
 				6163DBFD2934AAAC00CEF49D /* RegistrationViewController.swift in Sources */,
+				61130ADF2951E3B900AF0686 /* NotificationLikeeventTableViewCell.swift in Sources */,
 				6192C7A1293FD06600906BE6 /* IGFeedPostGeneralTableViewCell.swift in Sources */,
 				6163DC0B2934ABB000CEF49D /* PostEditorViewController.swift in Sources */,
 				6192C7A32941171600906BE6 /* FormTableViewCell.swift in Sources */,
 				6192C79A293FCD2600906BE6 /* IGFeedPostTableViewCell.swift in Sources */,
 				61B7BFD5293899660041DFB1 /* StorageManager.swift in Sources */,
+				61130ADA2951DC9600AF0686 /* NoNotificationsView.swift in Sources */,
+				61130ADD2951E38800AF0686 /* NotificationFollowEventTableViewCell.swift in Sources */,
 				61FE573629509B3A00125B01 /* UserFollowTableViewCell.swift in Sources */,
 				6163DBFF2934AADB00CEF49D /* PostViewController.swift in Sources */,
 				6163DBF42934A97200CEF49D /* NotificationsViewController.swift in Sources */,
