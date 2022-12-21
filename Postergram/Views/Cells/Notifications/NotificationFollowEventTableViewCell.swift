@@ -58,7 +58,7 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         
     }
     
-    override  func prepareForReuse() {
+    override func prepareForReuse() {
         super.prepareForReuse()
         
         followButton.setTitle(nil, for: .normal)
