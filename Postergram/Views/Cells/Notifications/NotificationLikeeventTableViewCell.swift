@@ -16,7 +16,7 @@ class NotificationLikeeventTableViewCell: UITableViewCell {
 
   static let identifier = "NotificationLikeeventTableViewCell"
     
-    weak var delegate: NotificationFollowEventTableViewCellDelegate?
+    weak var delegate: NotificationLikeeventTableViewCellDelegate?
     
     private var model: UserNotification?
     
@@ -48,8 +48,17 @@ class NotificationLikeeventTableViewCell: UITableViewCell {
         contentView.addSubview(profileImageView)
         contentView.addSubview(label)
         contentView.addSubview(postButton)
+        postButton.addTarget(self, action: #selector(didTapPostButton), for: .touchUpInside)
+        selectionStyle = .none
+
     }
     
+    @objc private func didTapPostButton() {
+        guard let model = model else {
+            return
+        }
+        delegate?.didTapRelatedPostButton(model: model)
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -97,14 +106,14 @@ class NotificationLikeeventTableViewCell: UITableViewCell {
         profileImageView.layer.cornerRadius = profileImageView.heightExt / 2
         
         let size = contentView.heightExt - 4
-        postButton.frame = CGRect(x: contentView.widthExt - size,
+        postButton.frame = CGRect(x: contentView.widthExt - 5 - size,
                                   y: 2,
                                   width: size,
                                   height: size)
         
-        label.frame = CGRect(x: profileImageView.rightExt,
+        label.frame = CGRect(x: profileImageView.rightExt + 5,
                              y: 0,
-                             width: contentView.widthExt - size - profileImageView.widthExt - 6,
+                             width: contentView.widthExt - size - profileImageView.widthExt - 16,
                              height: contentView.heightExt)
         
     }

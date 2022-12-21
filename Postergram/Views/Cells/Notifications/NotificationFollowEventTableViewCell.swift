@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NotificationFollowEventTableViewCellDelegate: AnyObject {
-    func didTapFollowUnfollowButton(model: String)
+    func didTapFollowUnfollowButton(model: UserNotification)
 }
 
 class NotificationFollowEventTableViewCell: UITableViewCell {
@@ -17,9 +17,12 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
     
     weak var delegate: NotificationFollowEventTableViewCellDelegate?
     
+    
+    private var model: UserNotification?
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = true
+        imageView.backgroundColor = .tertiarySystemBackground
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -28,11 +31,14 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .label
         label.numberOfLines = 0
+        label.text = "@kanyeWest followed you"
         return label
     }()
     
     private let followButton: UIButton = {
         let button = UIButton()
+        button.layer.cornerRadius = 4
+        button.layer.masksToBounds = true
         return button
     }()
     
@@ -42,20 +48,59 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         contentView.addSubview(profileImageView)
         contentView.addSubview(label)
         contentView.addSubview(followButton)
+        followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
+        configureForFollow()
+        selectionStyle = .none
+
+
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        followButton.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+    @objc private func didTapFollowButton() {
+        guard let model = model else {
+            return
+        }
+        delegate?.didTapFollowUnfollowButton(model: model)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configure(with model: String) {
+    public func configure(with model: UserNotification) {
         
+        self.model = model
+        
+        switch model.type {
+            
+        case .like(_):
+            break
+
+        case .follow(let state):
+            // Configure button
+            switch state {
+            case .following:
+                // Show unfollow button
+                configureForFollow()
+                
+            case . not_following:
+                // Show follow button
+                followButton.setTitle("Follow", for: .normal)
+                followButton.setTitleColor(.white, for: .normal)
+                followButton.layer.borderWidth = 0
+                followButton.backgroundColor = .link
+
+            }
+        }
+        
+        label.text = model.text
+        profileImageView.sd_setImage(with: model.user.profilePhoto, completed: nil)
+    }
+    
+    private func configureForFollow() {
+        followButton.setTitle("Unfollow", for: .normal)
+        followButton.setTitleColor(.label, for: .normal)
+        followButton.layer.borderWidth = 1
+        followButton.layer.borderColor = UIColor.secondaryLabel.cgColor
     }
     
     override func prepareForReuse() {
@@ -66,6 +111,29 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         followButton.layer.borderWidth = 0
         label.text = nil
         profileImageView.image = nil
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        profileImageView.frame = CGRect(x: 3,
+                                        y: 3,
+                                        width: contentView.heightExt - 6,
+                                        height: contentView.heightExt - 6)
+        profileImageView.layer.cornerRadius = profileImageView.heightExt / 2
+        
+        let size: CGFloat = 100
+        let buttonHeight: CGFloat = 40
+        followButton.frame = CGRect(x: contentView.widthExt - 5 - size,
+                                    y: (contentView.heightExt - buttonHeight) / 2,
+                                  width: size,
+                                  height: buttonHeight)
+        
+        label.frame = CGRect(x: profileImageView.rightExt + 5,
+                             y: 0,
+                             width: contentView.widthExt - size - profileImageView.widthExt - 16,
+                             height: contentView.heightExt)
+        
     }
 
 }
