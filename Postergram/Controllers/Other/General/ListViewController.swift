@@ -63,7 +63,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         // Go to profile of selected cell
         
-        let model = data[indexPath.row]
+        let _ = data[indexPath.row] //model
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
