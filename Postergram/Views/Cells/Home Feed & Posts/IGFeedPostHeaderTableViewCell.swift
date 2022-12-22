@@ -8,8 +8,14 @@
 import SDWebImage
 import UIKit
 
+protocol IGFeedPostHeaderTableViewCellDelegate: AnyObject {
+    func didTapMoreButton()
+}
+
 class IGFeedPostHeaderTableViewCell: UITableViewCell {
 
+    weak var delegate: IGFeedPostHeaderTableViewCellDelegate?
+    
     static let identifier = "IGFeedPostHeaderTableViewCell"
     
     private let profilePhotoImageView: UIImageView = {
@@ -82,7 +88,7 @@ class IGFeedPostHeaderTableViewCell: UITableViewCell {
     }
     
     @objc private func didTapMoreButton() {
-        
+        delegate?.didTapMoreButton()
     }
 
     override func prepareForReuse() {
