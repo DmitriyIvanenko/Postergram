@@ -198,8 +198,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         else if subSection == 2 {
             //actions
             switch model.action.renderType {
-            case .actions(_): //(let provider)
+            case .actions(let provider):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostActionsTableViewCell.identifier, for: indexPath) as! IGFeedPostActionsTableViewCell
+                
+//                cell.configure(with: provider)
+                cell.delegate = self
+                
                 return cell
             case .comments, .primaryContent, .header: return UITableViewCell()
             }
@@ -267,5 +271,19 @@ extension HomeViewController: IGFeedPostHeaderTableViewCellDelegate {
     
     func reportPost() {
         
+    }
+}
+
+extension HomeViewController: IGFeedPostActionsTableViewCellDelegate {
+    func didTapSendButton() {
+        print("Tapped Send")
+    }
+    
+    func didTapLikeButton() {
+        print("Tapped Like")
+    }
+    
+    func didTapCommentButton() {
+        print("Tapped Comment")
     }
 }
