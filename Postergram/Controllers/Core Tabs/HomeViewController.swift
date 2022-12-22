@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
     private func createMocModels() {
         
         let user = User(
-            username: "joe",
+            username: "@kanye_west",
                        bio: "",
                        name: (first: "", last: ""),
                        profilePhoto: URL(string: "https://google.com")!,
@@ -172,8 +172,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if subSection == 0 {
             //header
             switch model.header.renderType {
-            case .header(_): //(let provider)
+            case .header(let user):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostHeaderTableViewCell.identifier, for: indexPath) as! IGFeedPostHeaderTableViewCell
+                
+                cell.configure(with: user)
+                
                 return cell
             case .comments, .actions, .primaryContent: return UITableViewCell()
             }
@@ -181,8 +184,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         else if subSection == 1 {
             //post
             switch model.post.renderType {
-            case .primaryContent(_): //(let post)
+            case .primaryContent(let post):
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostTableViewCell.identifier, for: indexPath) as! IGFeedPostTableViewCell
+                
+                cell.configure(with: post)
+                
                 return cell
             case .comments, .actions, .header: return UITableViewCell()
             }
