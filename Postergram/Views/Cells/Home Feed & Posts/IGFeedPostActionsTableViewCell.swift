@@ -1,5 +1,5 @@
 //
-//  IGFeedPostTableViewCell.swift
+//  IGFeedPoatActionsTableViewCell.swift
 //  Postergram
 //
 //  Created by Dmytro Ivanenko on 06.12.2022.
@@ -7,12 +7,14 @@
 
 import UIKit
 
-final class IGFeedPostTableViewCell: UITableViewCell {
-    
-    static let identifier = "IGFeedPostTableViewCell"
+class IGFeedPostActionsTableViewCell: UITableViewCell {
+
+    static let identifier = "IGFeedPostActionsTableViewCell"
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.backgroundColor = .systemGreen
+
     }
     
     required init?(coder: NSCoder) {
@@ -21,6 +23,9 @@ final class IGFeedPostTableViewCell: UITableViewCell {
     
     private func configure() {
         
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
     
 }

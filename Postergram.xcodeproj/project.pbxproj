@@ -38,7 +38,7 @@
 		6163DC0D2934ABD400CEF49D /* PublishPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6163DC0C2934ABD400CEF49D /* PublishPostViewController.swift */; };
 		6192C79A293FCD2600906BE6 /* IGFeedPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192C799293FCD2600906BE6 /* IGFeedPostTableViewCell.swift */; };
 		6192C79D293FCFFB00906BE6 /* IGFeedPostHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192C79C293FCFFB00906BE6 /* IGFeedPostHeaderTableViewCell.swift */; };
-		6192C79F293FD02700906BE6 /* IGFeedPoatActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192C79E293FD02700906BE6 /* IGFeedPoatActionsTableViewCell.swift */; };
+		6192C79F293FD02700906BE6 /* IGFeedPostActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192C79E293FD02700906BE6 /* IGFeedPostActionsTableViewCell.swift */; };
 		6192C7A1293FD06600906BE6 /* IGFeedPostGeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192C7A0293FD06600906BE6 /* IGFeedPostGeneralTableViewCell.swift */; };
 		6192C7A32941171600906BE6 /* FormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192C7A22941171600906BE6 /* FormTableViewCell.swift */; };
 		6192C7A62941EABD00906BE6 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192C7A52941EABD00906BE6 /* PhotoCollectionViewCell.swift */; };
@@ -83,7 +83,7 @@
 		6163DC0C2934ABD400CEF49D /* PublishPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostViewController.swift; sourceTree = "<group>"; };
 		6192C799293FCD2600906BE6 /* IGFeedPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostTableViewCell.swift; sourceTree = "<group>"; };
 		6192C79C293FCFFB00906BE6 /* IGFeedPostHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostHeaderTableViewCell.swift; sourceTree = "<group>"; };
-		6192C79E293FD02700906BE6 /* IGFeedPoatActionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPoatActionsTableViewCell.swift; sourceTree = "<group>"; };
+		6192C79E293FD02700906BE6 /* IGFeedPostActionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostActionsTableViewCell.swift; sourceTree = "<group>"; };
 		6192C7A0293FD06600906BE6 /* IGFeedPostGeneralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGFeedPostGeneralTableViewCell.swift; sourceTree = "<group>"; };
 		6192C7A22941171600906BE6 /* FormTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTableViewCell.swift; sourceTree = "<group>"; };
 		6192C7A52941EABD00906BE6 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -241,22 +241,22 @@
 			isa = PBXGroup;
 			children = (
 				61130ADB2951E33A00AF0686 /* Notifications */,
-				6192C79B293FCFBC00906BE6 /* Home Feed */,
+				6192C79B293FCFBC00906BE6 /* Home Feed & Posts */,
 				6192C7A22941171600906BE6 /* FormTableViewCell.swift */,
 				61FE573529509B3A00125B01 /* UserFollowTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		6192C79B293FCFBC00906BE6 /* Home Feed */ = {
+		6192C79B293FCFBC00906BE6 /* Home Feed & Posts */ = {
 			isa = PBXGroup;
 			children = (
 				6192C799293FCD2600906BE6 /* IGFeedPostTableViewCell.swift */,
 				6192C79C293FCFFB00906BE6 /* IGFeedPostHeaderTableViewCell.swift */,
-				6192C79E293FD02700906BE6 /* IGFeedPoatActionsTableViewCell.swift */,
+				6192C79E293FD02700906BE6 /* IGFeedPostActionsTableViewCell.swift */,
 				6192C7A0293FD06600906BE6 /* IGFeedPostGeneralTableViewCell.swift */,
 			);
-			path = "Home Feed";
+			path = "Home Feed & Posts";
 			sourceTree = "<group>";
 		};
 		6192C7A42941EA7500906BE6 /* CollectionView Header */ = {
@@ -397,7 +397,7 @@
 				6163DBF42934A97200CEF49D /* NotificationsViewController.swift in Sources */,
 				6163DC092934AB7200CEF49D /* SearchResultViewController.swift in Sources */,
 				61B7BFD1293887380041DFB1 /* DatabaseManager.swift in Sources */,
-				6192C79F293FD02700906BE6 /* IGFeedPoatActionsTableViewCell.swift in Sources */,
+				6192C79F293FD02700906BE6 /* IGFeedPostActionsTableViewCell.swift in Sources */,
 				6163DBFB2934AA9E00CEF49D /* LoginViewController.swift in Sources */,
 				6192C7AA2941EC1500906BE6 /* ProfileTabsCollectionReusableView.swift in Sources */,
 				61BD8AD429393072004258D2 /* Extensions.swift in Sources */,
