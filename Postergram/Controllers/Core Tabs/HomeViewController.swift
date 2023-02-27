@@ -198,7 +198,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         else if subSection == 2 {
             //actions
             switch model.action.renderType {
-            case .actions(let provider):
+            case .actions:
                 let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostActionsTableViewCell.identifier, for: indexPath) as! IGFeedPostActionsTableViewCell
                 
 //                cell.configure(with: provider)
